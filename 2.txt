@@ -1,0 +1,23 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class BatsmanScore {
+
+	public static void main(String[] args) {
+		List<Integer> l=new ArrayList<>();
+		Scanner s=new Scanner(System.in);
+		int sum=0;
+		int n=s.nextInt();
+		for(int i=0;i<n;i++) {
+			l.add(s.nextInt());
+		}
+		for(int j=0;j<n;j++) {
+			if(j%2!=0) {
+				sum=sum+l.get(j);
+			}
+		}
+		System.out.println(sum);
+	}
+
+}

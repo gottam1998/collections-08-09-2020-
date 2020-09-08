@@ -1,0 +1,78 @@
+//Player Class
+
+public class Player {
+	
+	private String playerName;
+	private String playerTeam;
+	private String playerSkill;
+	
+	public Player(String playerName, String playerTeam, String playerSkill) {
+		super();
+		this.playerName=playerName;
+		this.playerTeam=playerTeam;
+		this.playerSkill=playerSkill;
+	}
+	
+	public String getPlayerName() {
+		return playerName;
+	}
+	public void setPlayerName(String playerName) {
+		this.playerName = playerName;
+	}
+	public String getPlayerTeam() {
+		return playerTeam;
+	}
+	public void setPlayerTeam(String playerTeam) {
+		this.playerTeam = playerTeam;
+	}
+	public String getPlayerSkill() {
+		return playerSkill;
+	}
+	public void setPlayerSkill(String playerSkill) {
+		this.playerSkill = playerSkill;
+	}
+	@Override
+	public String toString() {
+		return "-- "+ playerName + " -- " + playerTeam + " -- " + playerSkill;
+	}
+	
+}
+
+
+// Main Class
+
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeMap;
+
+public class PlayerDetails {
+
+	public static void main(String[] args) {
+		TreeMap<Integer,Player> tm=new TreeMap<>();
+		Scanner s=new Scanner(System.in);
+		int n=s.nextInt();
+		int capNo;
+		String playerName;
+		String playerTeam;
+		String playerSkill;
+		for(int i=0;i<n;i++) {
+			capNo=s.nextInt();
+			s.nextLine();
+			playerName=s.nextLine();
+			playerTeam=s.nextLine();
+			playerSkill=s.nextLine();
+			tm.put(capNo, new Player(playerName,playerTeam,playerSkill));
+		}
+		
+		Set s1=tm.entrySet();
+	     Iterator it=s1.iterator();
+	     while(it.hasNext()){
+	                  Map.Entry me=(Map.Entry)  it.next();
+	                  System.out.println(me.getKey()+" "+me.getValue());
+	     }
+	     
+	}
+
+}
